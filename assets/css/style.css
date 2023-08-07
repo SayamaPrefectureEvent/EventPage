@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+SA+Beginner:wght@400&family=Murecho&family=Noto+Sans:wght@200&family=Noto+Serif+JP:wght@900&family=Zen+Kurenaido&display=swap');
+
+:root {
+	--color-header: #34d0ff;
+	--color-header2: #009fcf;
+	--color-header-bg: #0078e1;
+	--color-h2: #fff;
+	--color-h3: #0078e1;
+	--color-events-even: #d5ebff;
+	--color-footer: #fff;
+	--color-footer-bg: #fff;
+	--color-footer-bg2: #0000ff;
+	--color-discord: #fff;
+	--color-discord-bg: #2b2d31;
+	--color-discord-shadow: #98b4ec;
+	--root-padding-side: min(20px, 3vw);
+	scroll-behavior: smooth;
+}
+
+* {
+	transition: all 0.5s ease;
+}
+
+body {
+	font-family: 'Edu SA Beginner', 'Zen Kurenaido', sans-serif;
+	min-width: 250px;
+	font-size: min(4vw, 16px);
+	/* Edu SA Beginner: 手書き、半角英数 */
+	/* Murecho: 細めのフォント */
+	/* Zen Kurenaido: 手書き */
+}
+
+header {
+	position: relative;
+	background-image: url(../images/poster_notxt.png);
+	background-size: cover;
+	padding: 5px var(--root-padding-side);
+	height: 145vw;
+	color: var(--color-header);
+	font-family: 'Edu SA Beginner', 'Noto serif JP', serif;
+	font-size: min(24px, 2.5vw);
+}
+
+header::after {
+	content: "";
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 200px;
+	left: 0;
+	bottom: 0;
+	background: linear-gradient(to bottom, transparent, var(--color-header-bg));
+}
+
+header h1,
+header p,
+header li {
+	text-shadow: 0.05em 0.03em 0px white, 0.1em 0.06em 0px black;
+}
+
+header h1 {
+	position: relative;
+	font-weight: 200;
+	font-size: 2.5em;
+	line-height: 1.2em;
+	opacity: 0;
+	animation: fade-in 2s cubic-bezier(0.21, 0.55, 0.54, 1) 0.5s forwards;
+}
+
+@keyframes fade-in {
+	0%{
+		padding-top: 400px;
+		opacity: 0;
+	}
+	100%{
+		padding-top: 0px;
+		opacity: 1;
+	}
+}
+
+header h1 span {
+	position: relative;
+}
+
+header .postertext1 {
+	font-family: 'Noto serif JP', serif;
+	position: relative;
+	width: fit-content;
+	font-size: 1.5em;
+	top: -.2em;
+	left: 1.5em;
+}
+
+header li {
+	color: var(--color-header2);
+}
+
+header li::marker{
+	content: "";
+}
+
+header .navigator {
+	position: fixed;
+	width: 100%;
+	top: 20vh;
+	left: 0;
+	font-size: 2.5em;
+	text-align: center;
+	color: white;
+	text-shadow: 0px 0px 10px var(--color-discord-bg);
+	animation: fade-out 2s cubic-bezier(0.21, 0.55, 0.54, 1) 2s forwards;
+}
+
+@keyframes fade-out {
+	0% {
+		top: 20vh;
+		opacity: 1;
+	}
+	99.9% {
+		top: 100vh;
+		opacity: 0;
+	}
+	100% {
+		top: -100vh;
+		opacity: 0;
+	}
+}
+
+.heading {
+	margin: auto;
+	max-width: 1440px;
+	color: var(--color-h2);
+	background: var(--color-header-bg);
+	padding: 10px var(--root-padding-side);
+}
+
+h2 {
+	font-size: min(2em, 8vw);
+}
+
+a.discord {
+	display: inline-flex;
+	align-items: center;
+	border-radius: 10px;
+	padding: 15px;
+	gap: 10px;
+	color: var(--color-discord);
+	background: var(--color-discord-bg);
+	text-decoration: none;
+	box-shadow: 6px 3px 5px 0px var(--color-discord-shadow);
+}
+
+a.discord img {
+	border: solid 3px white;
+	border-radius: 10px;
+	width: 80px;
+}
+
+a.discord:hover {
+	opacity: 0.7;
+	box-shadow: 0px 0px 5px 0px var(--color-discord-shadow);
+}
+
+strong {
+	color: red;
+	font-size: large;
+}
+
+.maincontent {
+	margin: auto;
+	max-width: 1440px;
+	padding: 10px var(--root-padding-side) 50px;
+	display: flex;
+	gap: 10px;
+}
+
+.maincontent > :first-child{
+	flex-grow: 1;
+}
+
+.maincontent h3 {
+	color: var(--color-h3);
+	margin-top: 0.5em;
+	padding-left: 1em;
+	position: relative;
+	border-bottom: dotted 2px var(--color-h3);
+	font-size: 1.5em;
+}
+
+.maincontent h3::before {
+	content: "";
+	display: inline-block;
+	position: absolute;
+	width: 0.5em;
+	height: 1.3em;
+	left: 0;
+	bottom: -2px;
+	background: var(--color-h3);
+}
+
+.maincontent h4 {
+	font-size: 1.25em;
+}
+
+.maincontent p {
+	margin-left: 1em;
+}
+
+.events {
+	display: block;
+	margin-top: 5px;
+}
+
+.events dl {
+	display: flex;
+	gap: 5px 10px;
+	padding: 5px 0;
+}
+
+.events dl:nth-child(2n + 1) {
+	background: var(--color-events-even);
+}
+
+.events dl dt {
+	width: 5em;
+	flex-shrink: 0;
+	text-align: center;
+}
+
+.events dl dd > span {
+	width: 6.5em;
+	text-align: center;
+	border-radius: 5px;
+}
+
+.index {
+	width: 200px;
+	flex-shrink: 0;
+}
+
+.index li::marker {
+	content: "";
+}
+
+.index li {
+	margin-left: 1em;
+}
+
+footer {
+	color: var(--color-footer);
+	background: linear-gradient(to bottom, var(--color-footer-bg), var(--color-footer-bg2) 40%);
+	padding: 40px var(--root-padding-side) 30px;
+	text-align: center;
+}
+
+footer a {
+	color: var(--color-footer);
+}
+
+footer a.twitter::before {
+	content: "";
+	display: inline-block;
+	background-image: url(../images/twitter.png);
+	background-size: cover;
+	width: 1.5em;
+	height: 1.5em;
+	vertical-align: middle;
+	padding: 2px;
+	border-radius: 1.5em;
+}
