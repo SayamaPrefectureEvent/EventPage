@@ -22,7 +22,7 @@ function getJSON(){
 		}
 	};
 	//下のファイルパスは仮のものであるため、後に正規の場所に移行すること。また、ローカルファイルはブラウザの同一生成元ポリシーにより受け付けられない。
-	req.open("GET", "../../data/event.json", false);
+	req.open("GET", "https://sayamaprefectureevent.github.io/EventPage/data/event.json", false);
 	// req.open("GET", "", false);
 	req.send(null);
 }
